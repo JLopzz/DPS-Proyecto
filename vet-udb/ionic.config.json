@@ -1,0 +1,7 @@
+{
+  "name": "vet-udb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

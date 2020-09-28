@@ -7,7 +7,7 @@ Repositorio utilizado para la elaboracion del proyecto **Control de Mascotas**, 
 | Maria Fernanda Martinez Soto | MS181332 | 01T | 03L |
 | Gerardo Javier Lopez Flamenco | LF172473 | 01T | 02L |
 | Salvador Armando Perez Pinto | PP130189 |  |  |
-| Edgardo |  |  |  |
+| Edgardo Amilcar Nieves Kamada | NK130207 |  |  |
 | Diego Alejandro Varela Velásquez | VV120320 |  |  |
 ---
 ## Info
