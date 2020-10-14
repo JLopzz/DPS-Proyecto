@@ -1,3 +1,29 @@
-<p>
-  clientes works!
-</p>
+<ion-content padding>
+  <app-header></app-header>
+
+  <ion-card>
+    <ion-card-header>
+      
+      <ion-card-title>Clientes</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+           <ion-item>
+            <ion-label floating></ion-label>
+            <ion-input type="text" name="nombrecliente" placeholder="Nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating></ion-label>
+            <ion-input type="text" name="apellidocliente" placeholder="Apellido" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating></ion-label>
+            <ion-input  type="text" name= "numtel" placeholder="Número de teléfono" mask='99-99999-9999'></ion-input>
+          </ion-item>
+          <section>
+            <ion-button type="submit" color="main" fill="solid" expand="block">Añadir cliente</ion-button>
+          </section>
+          
+          
+    </ion-card-content>
+  </ion-card>

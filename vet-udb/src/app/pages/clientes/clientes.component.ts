@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-clientes',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router : Router) { }
 
-  ngOnInit() {}
+  randomTitle='random'
+
+  ngOnInit() {
+    console.log(this.router.url)
+  }
+
 
 }
+

@@ -1,3 +1,115 @@
-<p>
-  mascotas works!
-</p>
+
+<ion-content padding>
+  <app-header></app-header>
+
+  <ion-card>
+    <ion-card-header>
+      
+      <ion-card-title>Mascotas</ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+           <ion-item>
+            <ion-label floating></ion-label>
+            <ion-input type="text" name="nombremascota" placeholder="Nombre de la mascota" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating></ion-label>
+            <ion-input type="text" name="razamascota" placeholder="Raza" required></ion-input>
+          </ion-item>
+
+
+          <ion-list>
+          
+            <ion-item>
+              <ion-label>Sexo</ion-label>
+              <ion-select placeholder="Selecciona uno">
+                <ion-select-option value="f">Femenino</ion-select-option>
+                <ion-select-option value="m">Masculino</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-list>
+          <ion-list>
+          
+            <ion-item>
+              <ion-label>Edad</ion-label>
+              <ion-select placeholder="Años">
+                <ion-select-option value="0">0 años</ion-select-option>
+                <ion-select-option value="1">1 año</ion-select-option>
+                <ion-select-option value="2">2 años</ion-select-option>
+                <ion-select-option value="3">3 años</ion-select-option>
+                <ion-select-option value="4">4 años</ion-select-option>
+                <ion-select-option value="5">5 años</ion-select-option>
+                <ion-select-option value="6">6 años</ion-select-option>
+                <ion-select-option value="7">7 años</ion-select-option>
+                <ion-select-option value="8">8 años</ion-select-option>
+                <ion-select-option value="9">9 años</ion-select-option>
+                <ion-select-option value="10">10 años</ion-select-option>
+                <ion-select-option value="11">11 años</ion-select-option>
+                <ion-select-option value="12">12 años</ion-select-option>
+                <ion-select-option value="13">13 años</ion-select-option>
+                <ion-select-option value="14">14 años</ion-select-option>
+                <ion-select-option value="15">15 años</ion-select-option>
+              </ion-select>
+              <ion-select placeholder="Meses">
+                <ion-select-option value="0">0 meses</ion-select-option>
+                <ion-select-option value="1">1 mes</ion-select-option>
+                <ion-select-option value="2">2 meses</ion-select-option>
+                <ion-select-option value="3">3 meses</ion-select-option>
+                <ion-select-option value="4">4 meses</ion-select-option>
+                <ion-select-option value="5">5 meses</ion-select-option>
+                <ion-select-option value="6">6 meses</ion-select-option>
+                <ion-select-option value="7">7 meses</ion-select-option>
+                <ion-select-option value="8">8 meses</ion-select-option>
+                <ion-select-option value="9">9 meses</ion-select-option>
+                <ion-select-option value="10">10 meses</ion-select-option>
+                <ion-select-option value="11">11 meses</ion-select-option>
+                <ion-select-option value="12">12 meses</ion-select-option>
+                <ion-select-option value="13">13 meses</ion-select-option>
+                <ion-select-option value="14">14 meses</ion-select-option>
+                <ion-select-option value="15">15 meses</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-list>
+          <ion-list>
+            <ion-item>
+          <ion-row>
+            <ion-col>
+            <ion-input  type="number" name= "pesomascota" placeholder="Peso (lbs)"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-item> 
+        </ion-list>
+        <ion-item>
+          <ion-textarea placeholder="Historial clínico..."></ion-textarea>
+        </ion-item>
+         
+          <ion-row>
+            <ion-col></ion-col>
+            
+            <ion-col><ion-icon color="main" name="camera-outline" size=200 px  ></ion-icon></ion-col>
+            <ion-col>Añadir imagen</ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          
+
+          <section>
+            <ion-button type="submit" color="main" fill="solid" expand="block">Añadir mascota</ion-button>
+          </section>
+
+
+          
+  </ion-card-content>  
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      aquí iría la info de otros clientes pero no me funcionó
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
