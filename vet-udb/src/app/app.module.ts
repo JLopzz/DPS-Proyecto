@@ -17,18 +17,21 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment';
 
 //servicios
-import { AuthService } from './services/auth.service'
+import { FirebaseService } from './services/firebase.service'
 
 //paginas
 import { HomeComponent } from './pages/home/home.component'
 import { LoginComponent } from './pages/login/login.component';
 import { AboutComponent } from './pages/about/about.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { VisitasComponent } from './pages/visitas/visitas.component';
+import { MascotasComponent } from './pages/mascotas/mascotas.component';
 
 //componentes
 import { HeaderComponent } from './components/header/header.component'
-import { SignupComponent } from './pages/signup/signup.component';
-import { ForgetPwdComponent } from './pages/forget-pwd/forget-pwd.component';
-import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
+import { ForgetPwdComponent } from './components/forget-pwd/forget-pwd.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { VerifyEmailComponent } from './pages/verify-email/verify-email.componen
     ForgetPwdComponent,
     VerifyEmailComponent,
     AboutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ClientesComponent,
+    VisitasComponent,
+    MascotasComponent
   ],
   entryComponents: [],
   imports: [
@@ -58,7 +64,7 @@ import { VerifyEmailComponent } from './pages/verify-email/verify-email.componen
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy 
     },
-    AuthService
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })
