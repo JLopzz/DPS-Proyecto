@@ -42,6 +42,7 @@ import { NuevoClienteComponent } from './pages/nuevo-cliente/nuevo-cliente.compo
 import { HeaderComponent } from './components/header/header.component'
 import { ForgetPwdComponent } from './components/forget-pwd/forget-pwd.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ModificarClienteComponent } from './components/modificar-cliente/modificar-cliente.component'
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SignupComponent } from './components/signup/signup.component';
     MascotasComponent,
     NuevoClienteComponent,
     NuevaVisitaComponent,
+    ModificarClienteComponent,
     FiltrartablaPipe
   ],
   entryComponents: [],

@@ -33,4 +33,14 @@ export class SignupComponent implements OnInit {
       })
     })
   }
+  
+  googleLogin(){
+    this.fireAuth.GoogleAuth().then(()=>{
+      if(this.fireAuth.isLoggedIn) this.router.navigate(['clientes'])
+    })
+  }
+
+  togglePass(){
+    this.showPass = !this.showPass
+  }
 }
