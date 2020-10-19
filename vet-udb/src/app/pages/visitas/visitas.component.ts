@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { PacienteService } from '../../services/paciente.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Pacientes } from "../../models/models"
 
 @Component({
   selector: 'app-visitas',
@@ -9,32 +11,56 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 })
 export class VisitasComponent implements OnInit {
 
-  customYearValues = [2020, 2016, 2008, 2004, 2000, 1996];
-  customDayShortNames = ['s\u00f8n', 'man', 'tir', 'ons', 'tor', 'fre', 'l\u00f8r'];
-  customPickerOptions: any;
+  newhistoriales: Pacientes[];
 
-  constructor(public router : Router) { 
+  constructor(
+    public router : Router,
+    private pacienteService : PacienteService
+  ) { }
+  
 
-    this.customPickerOptions = {
-      buttons: [{
-        text: 'Save',
-        handler: () => console.log('Clicked Save!')
-      }, {
-        text: 'Log',
-        handler: () => {
-          console.log('Clicked Log. Do not Dismiss.');
-          return false;
-        }
-      }]
-    }
-
+  ngOnInit(): void {
+    this.obtenerHistoriales();
   }
 
-  randomTitle='random'
-
-  ngOnInit() {
-    console.log(this.router.url)
+  obtenerHistoriales() {
+    this.pacienteService.getHistorial().subscribe((resp: Pacientes[]) => {
+      this.newhistoriales = resp;
+      //console.log(this.newhistoriales);
+    });
   }
 
+  VerExp( idpaciente: number) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: '¿Desea ver el expediente?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: '¡Aceptar!',
+      cancelButtonText: '¡Cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
 
+        this.router.navigate(['/expediente', idpaciente]);
+
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          '¡Cancelado!',
+          'Ups!',
+          'error'
+        );
+      }
+    });
+  }
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
+import { CommonModule } from '@angular/common'
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -16,22 +18,30 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment';
 
+//pipes
+import { FiltrartablaPipe } from './pipes/filtrartabla.pipe';
+
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination';
+
 //servicios
 import { FirebaseService } from './services/firebase.service'
+import { PacienteService } from './services/paciente.service'
 
 //paginas
 import { HomeComponent } from './pages/home/home.component'
 import { LoginComponent } from './pages/login/login.component';
 import { AboutComponent } from './pages/about/about.component';
-import { SignupComponent } from './pages/signup/signup.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { VisitasComponent } from './pages/visitas/visitas.component';
+import { NuevaVisitaComponent } from './pages/nueva-visita/nueva-visita.component'
 import { MascotasComponent } from './pages/mascotas/mascotas.component';
+import { NuevoClienteComponent } from './pages/nuevo-cliente/nuevo-cliente.component'
 
 //componentes
 import { HeaderComponent } from './components/header/header.component'
 import { ForgetPwdComponent } from './components/forget-pwd/forget-pwd.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +50,14 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     LoginComponent,
     SignupComponent,
     ForgetPwdComponent,
-    VerifyEmailComponent,
     AboutComponent,
     HeaderComponent,
     ClientesComponent,
     VisitasComponent,
-    MascotasComponent
+    MascotasComponent,
+    NuevoClienteComponent,
+    NuevaVisitaComponent,
+    FiltrartablaPipe
   ],
   entryComponents: [],
   imports: [
@@ -55,7 +67,9 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [
     StatusBar,
@@ -64,7 +78,8 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy 
     },
-    FirebaseService
+    FirebaseService,
+    PacienteService
   ],
   bootstrap: [AppComponent]
 })

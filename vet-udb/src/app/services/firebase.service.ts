@@ -64,17 +64,10 @@ export class FirebaseService {
   }
 
   /** Para  el inicio de sesion **/
-  sessionInit( email:string, pass:string ){
+  SignIn( email:string, pass:string ){
     return this.afAuth.signInWithEmailAndPassword(email,pass)
-      .then(res=>{
-        this.ngZone.run(()=>{
-          this.router.navigate(['dashboard'])
-        })
-        this.setUserData(res.user)
-      })
-      .catch(err => {
-        window.alert(err.message)
-      })
+      .then(res=> this.setUserData(res.user))
+      .catch(err => window.alert(err.message))
   }
 
   SignUp(email:string, pass:string){
@@ -90,35 +83,19 @@ export class FirebaseService {
 
   SendVerificationMail(){
     return this.afAuth.currentUser
-      .then(u => {
-        u.sendEmailVerification();
-      })
-      .then(() => {
-        this.router.navigate(['verify-email-addres'])
-      })
+      .then(u => u.sendEmailVerification())
   }
 
   ForgotPassword(email) {
     return this.afAuth.sendPasswordResetEmail(email)
-      .then(() => {
-        window.alert('Se ha enviado el correo de restauracion de contraseña')
-      })
-      .catch(err => {
-        window.alert(err)
-      })
+      .then(() => window.alert('Se ha enviado el correo de restauracion de contraseña') )
+      .catch(err => window.alert(err))
   }
 
   GoogleAuth() {
     return this.afAuth.signInWithPopup(new auth.GoogleAuthProvider())
-      .then(res => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard'])
-        })
-        this.setUserData(res.user)
-      })
-      .catch(err => {
-        window.alert(err)
-      })
+      .then(res => this.setUserData(res.user) )
+      .catch(err => window.alert(err) )
   }
 
   setUserData( user ) {
@@ -138,7 +115,6 @@ export class FirebaseService {
     .then(() => {
       localStorage.setItem('user', null)
       localStorage.removeItem('user')
-      this.router.navigate(['sign-in'])
     })
   }
   

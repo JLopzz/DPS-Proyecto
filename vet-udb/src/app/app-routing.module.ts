@@ -5,18 +5,20 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { HomeComponent } from './pages/home/home.component'
 import { LoginComponent } from './pages/login/login.component';
 import { MascotasComponent } from './pages/mascotas/mascotas.component';
-import { SignupComponent } from './pages/signup/signup.component';
 import { VisitasComponent } from './pages/visitas/visitas.component';
+import { NuevoClienteComponent } from './pages/nuevo-cliente/nuevo-cliente.component'
+import { NuevaVisitaComponent } from './pages/nueva-visita/nueva-visita.component'
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },//quitar
+  { path: '', redirectTo: 'login', pathMatch: 'full' },//a login
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'mascotas', component: MascotasComponent },
+  { path: 'mascotas', component: MascotasComponent },//quitar
+  { path: 'nuevo-cliente', component: NuevoClienteComponent },
   { path: 'clientes', component: ClientesComponent },
   { path: 'visitas', component: VisitasComponent },
+  { path: 'nueva-visita', component: NuevaVisitaComponent },
 ];
 
 @NgModule({

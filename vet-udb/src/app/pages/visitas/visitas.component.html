@@ -1,29 +1,21 @@
 <ion-content padding>
-  <app-header></app-header>
-
-  <ion-card>
-    <ion-card-header>
-     <ion-card-title>Citas</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-item>
-        <ion-label floating></ion-label>
-        <ion-input type="text" name="nombremascota" placeholder="ID Mascota" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating></ion-label>
-        <ion-input  type="text" name= "numtel" placeholder="Número de teléfono" mask='99-99999-9999'></ion-input>
-      </ion-item>
-      <ion-label>Seleccione fecha y hora</ion-label>
-      <ion-item>
-        <ion-label></ion-label>
-        <ion-datetime displayFormat="D MMM YYYY H:mm" min="2020" max="2022" value="2020-11-02T11:06Z"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-textarea placeholder="Motivo de la cita"></ion-textarea>
-      </ion-item>
-
-          
-    </ion-card-content>
-  </ion-card>
+  <app-header title="Registro de Visitas de Clientes"></app-header>
+  <div class="table-responsive animated fadeInDown">
+    <table class="table full-color-table full-primary-table hover-table">
+      <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Ver</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let hist of newhistoriales">
+            <td>{{hist.nompaciente}}</td>
+            <td>
+              <a (click)="VerExp(hist.idpaciente);" class="btn btn-success" ><i class="fa fa-eye"></i></a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>    
+</ion-content>

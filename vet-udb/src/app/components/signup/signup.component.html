@@ -1,0 +1,46 @@
+<ion-gird>
+  <ion-row>
+    <ion-col size-sm="8" offset-sm="2">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Nueva Cuenta de Usuario</ion-card-title>
+          <ion-card-subtitle>Ingresa tu correo y contraseña  </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-row>
+          <ion-col size="8" offset="2">
+            <ion-item>
+              <ion-label position="stacked">Correo Electronico</ion-label>
+              <ion-input type="text" name="userName" id="userName" [(ngModel)]="userMail" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Contraseña</ion-label>
+              <ion-icon *ngIf="showPass===false" name="eye-outline" slot="end" (click)="togglePass()"></ion-icon>
+              <ion-icon *ngIf="showPass===true" name="eye-off-outline" slot="end" (click)="togglePass()"></ion-icon>
+              <ion-input *ngIf="showPass==false" type="password" name="pass" id="pass" required [(ngModel)]="userPwd"></ion-input>
+              <ion-input *ngIf="showPass==true" type="text" name="pass" id="pass"  required [(ngModel)]="userPwd"></ion-input>
+            </ion-item>
+            <ion-chip outline (click)="closeModal()">
+              <ion-icon name="finger-print-outline"></ion-icon>
+              <ion-label>Inicia Sesion</ion-label>
+            </ion-chip>
+            <ion-chip outline (click)="signUp()">
+              <ion-icon name="logo-google"></ion-icon>
+              <ion-label>Continua con Google</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button size="large" fill="solid" color="main" (click)="createAccount()">
+              Crear Cuenta
+              <ion-icon name="person-add-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-gird>

@@ -1,29 +1,50 @@
 <ion-content padding>
-  <app-header></app-header>
-
-  <ion-card>
-    <ion-card-header>
-      
-      <ion-card-title>Clientes</ion-card-title>
-    </ion-card-header>
+  <app-header title="Registro de Cliente"></app-header>
   
-    <ion-card-content>
-           <ion-item>
-            <ion-label floating></ion-label>
-            <ion-input type="text" name="nombrecliente" placeholder="Nombre" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating></ion-label>
-            <ion-input type="text" name="apellidocliente" placeholder="Apellido" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating></ion-label>
-            <ion-input  type="text" name= "numtel" placeholder="Número de teléfono" mask='99-99999-9999'></ion-input>
-          </ion-item>
-          <section>
-            <ion-button type="submit" color="main" fill="solid" expand="block">Añadir cliente</ion-button>
-          </section>
-          
-          
-    </ion-card-content>
-  </ion-card>
+  <div class="row">
+    <!-- <div class="col-4 offset-8">
+      <div class="form-group">
+        <input id="demo-input-search2" type="text" name="filtrarNombre" [(ngModel)]="filtrarNombre" placeholder="Buscar por nombre" autocomplete="off">
+      </div>
+    </div> -->
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive animated fadeInDown">
+            <table class="table full-color-table full-primary-table hover-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                  <th>Teléfono</th>
+                  <th>Dirección</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datos of pacientes">
+                  <td>{{datos.idpaciente}}</td>
+                  <td>{{datos.nompaciente}}</td>
+                  <td>{{datos.edadpaciente}}</td>
+                  <td>{{datos.telpaciente}}</td>
+                  <td>{{datos.dirpaciente}}</td>
+                  <td> 
+                  <a (click)="seleccionarPaciente(datos.idpaciente);" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a>
+                  </td>
+                  <td> 
+                  <a (click)="EliminarPaciente(datos.idpaciente);" class="btn btn-success"><ion-icon name="trash-outline"></ion-icon></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+</ion-content>
+

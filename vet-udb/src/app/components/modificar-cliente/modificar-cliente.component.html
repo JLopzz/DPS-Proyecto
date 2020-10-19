@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Editar Cliente</h5>
+    <div class="form-body">
+      <div class="row p-t-20">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Nombre completo</label>
+            <input type="text"  class="form-control" name="paciente.nompaciente" [(ngModel)]="paciente.nompaciente" placeholder="Brenda Torres" >
+          </div>
+        </div>
+        <!--/span-->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Edad</label>
+            <input type="text"  class="form-control" name="paciente.edadpaciente" [(ngModel)]="paciente.edadpaciente" placeholder="31 años">
+          </div>
+        </div>
+        <!--/span-->
+      </div>
+      <!--/row-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text"   class="form-control" name="paciente.telpaciente" [(ngModel)]="paciente.telpaciente" placeholder="(999) 999-9999">
+          </div>
+        </div>
+        <!--/span-->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Dirección</label>
+            <input type="text"  class="form-control" name="paciente.dirpaciente" [(ngModel)]="paciente.dirpaciente"  placeholder="Ciudadela Don Bosco, Soyapango, El Salvador, CA. Código Postal 1874.">
+          </div>
+        </div>
+        <!--/span-->
+      </div>
+<!--/row-->                                        
+    </div>
+    <div class="form-actions">
+      <button (click)="editarPaciente();" class="btn btn-success"> <i class="fa fa-check" ></i> Guardar </button> 
+      <ion-button slot="icon-only" (click)="showData()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </div>
+  </div>
+</div>

@@ -5,13 +5,14 @@
       <ion-menu-button autoHide="false" color="clear-type"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="primary">
-      <ion-button (click)="changeTheme()">
-        <ion-icon slot="icon-only" color="clear-type" name="contrast"></ion-icon>
+      <ion-button *ngIf="fireAuth.isLoggedIn === false" >
+        <ion-icon name="person-circle-outline" color="clear-type" size='large'></ion-icon>
       </ion-button>
-      <ion-button color="clear-type">
-        Inicia Sesion
-        <ion-icon name="person-circle-outline" slot="end" size="large"></ion-icon>
-      </ion-button>
+      <ion-item color="main" *ngIf="fireAuth.isLoggedIn === true"> 
+        <ion-avatar>
+          <img src="{{user.photoURL}}">
+        </ion-avatar>
+      </ion-item>
     </ion-buttons>
     <ion-title color="clear-type">Vet-UDB</ion-title>
     <ion-title slot="secondary" color="clear-type">{{title}}</ion-title>

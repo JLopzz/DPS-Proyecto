@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FirebaseService } from "../../services/firebase.service"
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-  
+  constructor(
+    public fireAuth : FirebaseService
+  ) { 
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
+
+  user : any
   @Input() title : string
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

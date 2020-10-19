@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Router } from '@angular/router'
+import { FirebaseService } from "./services/firebase.service"
 
 @Component({
   selector: 'app-root',
@@ -18,32 +19,32 @@ export class AppComponent{
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router : Router,
-    private menu : MenuController
+    private menu : MenuController,
+    public fireAuth : FirebaseService
   ) {
     this.initializeApp();
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   darkTheme = false
+  user : any
 
   initializeApp() {
-    
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      // this.openMenu()
     });
   }
 
-  changeTheme(){
-    console.log(this.darkTheme)
-    this.darkTheme = !this.darkTheme
-    console.log(this.darkTheme)
-  }
+  openMenu() { this.menu.open(); }
 
-  openMenu() {
-    this.menu.open();
-  }
-
-  closeMenu() {
-    this.menu.close();
+  closeMenu() { this.menu.close(); }
+  
+  logOut(){
+    this.fireAuth.SignOut().then(()=>{
+      this.closeMenu()
+      this.router.navigate(['login'])
+    })
   }
 }
