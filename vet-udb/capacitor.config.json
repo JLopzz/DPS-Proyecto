@@ -3,7 +3,7 @@
   "appName": "vet-udb",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www",
+  "webDir": "vet",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
