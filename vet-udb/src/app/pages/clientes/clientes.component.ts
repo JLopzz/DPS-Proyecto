@@ -11,32 +11,25 @@ import { ModalController } from '@ionic/angular'
   styleUrls: ['./clientes.component.scss'],
 })
 export class ClientesComponent implements OnInit{
+  
   // Obtener la lista de pacientes
-   pacientes: Pacientes[];
-   paciente: any = {};
-   filtrarNombre: any = "";
-   // tslint:disable-next-line: no-inferrable-types
-   p: number = 1;
-   constructor(
-     public pacienteService: PacienteService,
-     public modalCont : ModalController
-     ) { }
+  pacientes: Pacientes[];
+  paciente: any = {};
+  filtrarNombre: any = "";
+  p: number = 1;
+
+  constructor(
+    public pacienteService: PacienteService,
+    public modalCont : ModalController
+  ) { }
  
-   ngOnInit(): void {
-     this.obtenerPacientes();
-   }
+  ngOnInit(): void {
+    this.obtenerPacientes();
+  }
 
   obtenerPacientes() {
     this.pacienteService.getPaciente().subscribe((resp: Pacientes[]) => {
       this.pacientes = resp;
-    });
-  }
-
-  seleccionarPaciente(idpaciente) {
-    this.pacienteService.seleccionarPaciente(idpaciente).subscribe(resp => {
-     this.paciente = resp[0];
-     console.log(this.paciente)
-     this.openModal(idpaciente)
     });
   }
 
@@ -47,50 +40,47 @@ export class ClientesComponent implements OnInit{
         'data' : id
       }
     })
+    modal.onDidDismiss().then(() => this.obtenerPacientes())
     return await modal.present();
   }
 
  
- EliminarPaciente(idpaciente) {
-   const swalWithBootstrapButtons = Swal.mixin({
-     customClass: {
-       confirmButton: 'btn btn-success',
-       cancelButton: 'btn btn-danger'
-     },
-     buttonsStyling: false
-   });
-   swalWithBootstrapButtons.fire({
-     title: '¿Desea Eliminar Al Paciente?',
-     text: '',
-     icon: 'warning',
-     showCancelButton: true,
-     confirmButtonText: 'Aceptar',
-     cancelButtonText: 'Cancelar',
-     reverseButtons: true
-   }).then((result) => {
-     if (result.isConfirmed) {
-       this.pacienteService.eliminarPaciente(idpaciente).subscribe(resp => {
-         // tslint:disable-next-line: triple-equals
-         // tslint:disable-next-line: no-string-literal
-         if ( resp['resultado'] === 'OK') {
-       swalWithBootstrapButtons.fire(
-         '¡Paciente Eliminado!',
-         'Haga Click Para Continuar',
-         'success'
-       );
-       this.obtenerPacientes();
-         }
-       });
-     } else if (
-       /* Read more about handling dismissals below */
-       result.dismiss === Swal.DismissReason.cancel
-     ) {
-       swalWithBootstrapButtons.fire(
-         '¡Cancelado!',
-         'Ups!',
-         'error'
-       );
-     }
+  EliminarPaciente(idpaciente) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Desea Eliminar Al Paciente?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.pacienteService.eliminarPaciente(idpaciente).subscribe(resp => {
+          if ( resp['resultado'] === 'OK') {
+            swalWithBootstrapButtons.fire(
+              '¡Paciente Eliminado!',
+              'Haga Click Para Continuar',
+              'success'
+            );
+            this.obtenerPacientes();
+          }
+        });
+      } else if ( result.dismiss === Swal.DismissReason.cancel ) {
+        swalWithBootstrapButtons.fire(
+          '¡Cancelado!',
+          'Ups!',
+          'error'
+        );
+      }
     });
   }
 }

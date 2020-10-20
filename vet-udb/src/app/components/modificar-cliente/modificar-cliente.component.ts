@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PacienteService } from '../../services/paciente.service';
-import { Pacientes } from '../../models/models';
+import { Router } from '@angular/router'
 import Swal from 'sweetalert2';
 import { ModalController } from "@ionic/angular";
 
@@ -9,23 +9,18 @@ import { ModalController } from "@ionic/angular";
   templateUrl: './modificar-cliente.component.html',
   styleUrls: ['./modificar-cliente.component.scss'],
 })
-export class ModificarClienteComponent implements OnChanges {
+export class ModificarClienteComponent{
 
-  paciente:any
+  paciente:any = {}
 
   constructor(
     private pacienteService : PacienteService,
-    private modalCtrl : ModalController
+    private modalCtrl : ModalController,
+    private router : Router
   ) { }
 
-  
-  @Input() set data (value:any){
-    console.log(value)
-    this.seleccionarPaciente(value)
-  }
-
-  ngOnChanges(changes:SimpleChanges) {
-    console.log(changes.props)
+  @Input() set data (paramId:any){
+    this.seleccionarPaciente(paramId)
   }
 
   seleccionarPaciente(idpaciente) {
@@ -36,27 +31,20 @@ export class ModificarClienteComponent implements OnChanges {
 
   editarPaciente() {
     this.pacienteService.editarPaciente(this.paciente).subscribe(resp => {
-     // tslint:disable-next-line: no-string-literal
-     if (resp['resultado'] === 'OK') {
-       Swal.fire({
-         icon: 'success',
-         title: '¡Paciente Editado Correctamente!',
-         showConfirmButton: false,
-         timer: 2000
-       });
-       this.dismiss()
-     }
+      if (resp['resultado'] === 'OK') {
+        Swal.fire({
+          icon: 'success',
+          title: '¡Paciente Editado Correctamente!',
+          showConfirmButton: false,
+          timer: 2000
+        });
+        this.router.navigate(['clientes'])
+        this.dismiss()
+      }
     });
   }
 
-  showData(){
-    console.log(this.paciente)
-    this.dismiss()
-  }
-
   dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
     this.modalCtrl.dismiss({
       'dismissed': true
     });

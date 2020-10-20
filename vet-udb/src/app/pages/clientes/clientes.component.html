@@ -25,16 +25,20 @@
               </thead>
               <tbody>
                 <tr *ngFor="let datos of pacientes">
-                  <td>{{datos.idpaciente}}</td>
-                  <td>{{datos.nompaciente}}</td>
-                  <td>{{datos.edadpaciente}}</td>
-                  <td>{{datos.telpaciente}}</td>
-                  <td>{{datos.dirpaciente}}</td>
-                  <td> 
-                  <a (click)="seleccionarPaciente(datos.idpaciente);" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a>
+                  <td class="align-middle">{{datos.idpaciente}}</td>
+                  <td class="align-middle">{{datos.nompaciente}}</td>
+                  <td class="align-middle">{{datos.edadpaciente}}</td>
+                  <td class="align-middle">{{datos.telpaciente}}</td>
+                  <td class="align-middle">{{datos.dirpaciente}}</td>
+                  <td class="align-middle"> 
+                    <ion-button (click)="openModal(datos.idpaciente)" slot="icon-only" color="success">
+                      <ion-icon name="create-outline"></ion-icon>
+                    </ion-button>
                   </td>
-                  <td> 
-                  <a (click)="EliminarPaciente(datos.idpaciente);" class="btn btn-success"><ion-icon name="trash-outline"></ion-icon></a>
+                  <td class="align-middle"> 
+                    <ion-button (click)="EliminarPaciente(datos.idpaciente)" slot="icon-only" color="danger">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
                   </td>
                 </tr>
               </tbody>

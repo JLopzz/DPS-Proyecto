@@ -26,7 +26,6 @@ export class VisitasComponent implements OnInit {
   obtenerHistoriales() {
     this.pacienteService.getHistorial().subscribe((resp: Pacientes[]) => {
       this.newhistoriales = resp;
-      //console.log(this.newhistoriales);
     });
   }
 
@@ -48,13 +47,8 @@ export class VisitasComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-
-        this.router.navigate(['/expediente', idpaciente]);
-
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
+        this.router.navigate(['visitas', idpaciente]);
+      } else if ( result.dismiss === Swal.DismissReason.cancel ) {
         swalWithBootstrapButtons.fire(
           '¡Cancelado!',
           'Ups!',

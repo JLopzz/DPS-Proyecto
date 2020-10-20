@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
-import { CommonModule } from '@angular/common'
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -37,12 +36,15 @@ import { VisitasComponent } from './pages/visitas/visitas.component';
 import { NuevaVisitaComponent } from './pages/nueva-visita/nueva-visita.component'
 import { MascotasComponent } from './pages/mascotas/mascotas.component';
 import { NuevoClienteComponent } from './pages/nuevo-cliente/nuevo-cliente.component'
+import { DetalleVisitaComponent } from './pages/detalle-visita/detalle-visita.component'
 
 //componentes
 import { HeaderComponent } from './components/header/header.component'
 import { ForgetPwdComponent } from './components/forget-pwd/forget-pwd.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ModificarClienteComponent } from './components/modificar-cliente/modificar-cliente.component'
+import { EditarVisitaComponent } from './components/editar-visita/editar-visita.component'
+import { VerVisitaComponent } from './components/ver-visita/ver-visita.component'
 
 @NgModule({
   declarations: [
@@ -59,6 +61,9 @@ import { ModificarClienteComponent } from './components/modificar-cliente/modifi
     NuevoClienteComponent,
     NuevaVisitaComponent,
     ModificarClienteComponent,
+    EditarVisitaComponent,
+    VerVisitaComponent,
+    DetalleVisitaComponent,
     FiltrartablaPipe
   ],
   entryComponents: [],

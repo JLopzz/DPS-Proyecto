@@ -37,9 +37,17 @@
       </div>
 <!--/row-->                                        
     </div>
-    <div class="form-actions">
-      <button (click)="editarPaciente();" class="btn btn-success"> <i class="fa fa-check" ></i> Guardar </button> 
-      <ion-button slot="icon-only" (click)="showData()"><ion-icon name="close-outline"></ion-icon></ion-button>
-    </div>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="editarPaciente()" fill="solid" color="success">
+          Guardar
+          <ion-icon name="save-outline" slot="end"></ion-icon>
+        </ion-button> 
+        <ion-button (click)="dismiss()" fill="solid" color="danger">
+          Cancelar
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
   </div>
 </div>

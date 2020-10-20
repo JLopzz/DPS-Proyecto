@@ -1,0 +1,151 @@
+<ion-content [scrollEvents]="true">
+  <div class="card">
+    <form id="contenidoexpediente">
+      <div class="card-body">
+        <ion-toolbar>
+          <ion-title>Ver detalles de Visita:</ion-title>
+          <ion-buttons slot="end">
+            <ion-button fill="outline" color="danger" (click)="dismiss()">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="form-body">
+          <div class="col-12">
+            <div class="form-group row" >
+              <label id="cajafecha" for="example-search-input" class="col-4 col-form-label"><strong>FECHA</strong></label>
+              <div class="col-8">
+                <label for="example-text-input" class="col-form-label">{{expediente.fechahistorial}}</label>
+              </div>
+              <label for="example-search-input" class="col-4 col-form-label"><strong>NOMBRE MASCOTA</strong></label>
+              <div class="col-8">
+                <label for="example-text-input" class="col-form-label">{{expediente.nombremascotahistorial}}</label>
+              </div>
+            </div>
+            <div class="table">
+              <table class="table"  >
+                <thead >
+                  <tr >
+                    <th scope="col"><strong>ESPECIE</strong></th>
+                    <th scope="col"><strong>RAZA</strong></th>
+                    <th scope="col"><strong>PESO</strong></th>
+                    <th scope="col"><strong>SEXO</strong></th>
+                    <th scope="col"><strong>EDAD</strong></th>
+                    <th scope="col"><strong>TEMPERATURA</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr >
+                    <td >{{expediente.especiehistorial}}</td>
+                    <td >{{expediente.razahistorial}}</td>
+                    <td >{{expediente.pesohistorial}}</td>
+                    <td >{{expediente.sexohistorial}}</td>
+                    <td >{{expediente.edadhistorial}}</td>
+                    <td >{{expediente.temphistorial}}</td>
+                  </tr>       
+                </tbody>
+              </table>                                                
+            </div>
+            <div class="form-group row">
+              <button type="button" (click)="mostrar=!mostrar" class=" btn btn-outline-primary">Mostrar Mas Datos</button>
+            </div>
+            <div *ngIf="mostrar">                                                
+              <div class="form-group row">
+                <label for="example-text-input" class="col-12 col-form-label"><strong>TAMAÑO</strong></label>
+                <div class="col-12">
+                  <label for="example-text-input" class="col-form-label">{{expediente.tamaniohistorial}}</label>
+                </div>
+              </div>                        
+              <div class="form-group row">
+                <label for="example-search-input" class="col-12 col-form-label"><strong>ESTADO REPRODUCTIVO</strong></label>
+                <div class="col-12">
+                  <label for="example-text-input" class="col-form-label">{{expediente.estadoreprohistorial}}</label>
+                </div>
+              </div>                        
+              <div class="form-group row">
+                <label for="example-search-input" class="col-12 col-form-label"><strong>PROCEDENCIA</strong></label>
+                <div class="col-12">
+                  <label for="example-text-input" class="col-form-label">{{expediente.procedehistorial}}</label>
+                </div>
+              </div>                        
+              <div class="form-group row">
+                <label for="example-search-input" class="col-12 col-form-label"><strong>ALERGIAS</strong></label>
+                <div class="col-12">
+                  <label for="example-text-input" class="col-form-label">{{expediente.alergiashistorial}}</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-search-input" class="col-12 col-form-label"><strong>ALIMENTACION</strong></label>
+                <div class="col-12">
+                  <label for="example-text-input" class="col-form-label">{{expediente.alimentahistorial}}</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-search-input" class="col-12 col-form-label"><strong>VACUNAS</strong></label>
+                <div class="col-10">
+                  <label for="example-text-input" class="col-form-label">{{expediente.vacunashistorial}}</label>
+                </div>
+              </div>                                            
+            </div>
+            <div class="table-responsive-lg">
+              <table class="table" >
+                <thead >
+                  <tr class="col-12">
+                    <th class="col-12"><strong>MOTIVO CONSULTA</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="col-12">
+                    <td ><label for="example-search-input" class="col-12 col-form-label">{{expediente.motivoconsuhistorial}}</label></td>                                                                        
+                  </tr>                            
+                </tbody>
+              </table>                                                
+            </div>                         
+            <div class="table-responsive-lg">
+              <table class="table"  >
+                <thead >
+                  <tr class="col-12">
+                    <th class="col-12"><strong>OBSERVACIONES</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="col-12">
+                    <td ><label for="example-search-input" class="col-12 col-form-label">{{expediente.observacioneshistorial}}</label></td>                                                                        
+                  </tr>                            
+                </tbody>
+              </table>                                                
+            </div>
+            <div class="table-responsive-lg">
+              <table class="table"  >
+                <thead >
+                  <tr class="col-12">
+                    <th class="col-12" style="color:blue;"><strong>CITA PROXIMA</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="col-12">
+                    <td ><label for="example-search-input" class="col-12 col-form-label">{{expediente.citahistorial}}</label></td>                                                                        
+                  </tr>                            
+                </tbody>
+              </table>                                                
+            </div>                                               
+            <div class="table-responsive-lg">
+              <table class="table"  >
+                <thead >
+                  <tr class="col-12">
+                    <th class="col-12"><strong>Tratamiento</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="col-12">
+                    <td ><label for="example-search-input" class="col-12 col-form-label">{{expediente.diagnostico}}</label></td>
+                  </tr>                            
+                </tbody>
+              </table>                                                
+            </div>                                                                                                     
+          </div>               
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>

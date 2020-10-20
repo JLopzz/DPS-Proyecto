@@ -1,0 +1,118 @@
+<ion-content [scrollEvents]="true">
+  <div class="card">
+    <form>
+      <div class="card-body">
+        <ion-toolbar>
+          <ion-title>Editar detalles de Visita:</ion-title>
+          <ion-buttons slot="end">
+            <ion-button fill="outline" color="danger" (click)="dismiss()">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="form-body">
+          <div class="col-12">
+            <div class="form-group row" >
+              <label for="example-text-input" class="col-2 col-form-label">FECHA ELABORADA</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.fechahistorial" [(ngModel)]="expediente.fechahistorial" >
+              </div>
+              <label for="example-search-input" class="col-2 col-form-label">NOMBRE MASCOTA</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.nombremascotahistorial" [(ngModel)]="expediente.nombremascotahistorial" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">ESPECIE</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.especiehistorial" [(ngModel)]="expediente.especiehistorial" >
+              </div>
+              <label for="example-search-input" class="col-2 col-form-label">RAZA</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.razahistorial" [(ngModel)]="expediente.razahistorial" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">PESO</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.pesohistorial" [(ngModel)]="expediente.pesohistorial" >
+              </div>
+              <label for="example-search-input" class="col-2 col-form-label">SEXO</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.sexohistorial" [(ngModel)]="expediente.sexohistorial" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">EDAD</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.edadhistorial" [(ngModel)]="expediente.edadhistorial" >
+              </div>
+              <label for="example-search-input" class="col-2 col-form-label">TEMPERATURA</label>
+              <div class="col-4">
+                <input class="form-control" type="text" name="expediente.temphistorial" [(ngModel)]="expediente.temphistorial" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <button type="button" (click)="mostrar=!mostrar" class=" btn btn-outline-primary">Mostrar Mas Datos</button>
+            </div>
+            <div *ngIf="mostrar">  
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">TAMAÑO</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" name="expediente.tamaniohistorial" [(ngModel)]="expediente.tamaniohistorial" >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">ESTADO REPRODUCTIVO</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" name="expediente.estadoreprohistorial" [(ngModel)]="expediente.estadoreprohistorial" >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">PROCEDENCIA</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" name="expediente.procedehistorial" [(ngModel)]="expediente.procedehistorial" >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">ALERGIAS</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" name="expediente.alergiashistorial" [(ngModel)]="expediente.alergiashistorial" >
+                </div>
+              </div>
+              <div class="form-group">
+                <label>ALIMENTACION</label>
+                <textarea class="form-control" rows="4" name="expediente.alimentahistorial" [(ngModel)]="expediente.alimentahistorial"></textarea>
+              </div>
+              <div class="form-group">
+                <label>VACUNAS</label>
+                <textarea class="form-control" rows="4" name="expediente.vacunashistorial" [(ngModel)]="expediente.vacunashistorial" ></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>MOTIVO CONSULTA</label>
+              <textarea class="form-control" rows="7" name="expediente.motivoconsuhistorial" [(ngModel)]="expediente.motivoconsuhistorial" ></textarea>
+            </div>
+            <div class="form-group">
+              <label>OBSERVACIONES</label>
+              <textarea class="form-control" rows="8" name="expediente.observacioneshistorial" [(ngModel)]="expediente.observacioneshistorial"></textarea>
+            </div>                    
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">CITA PROXIMA</label>
+              <div class="col-10">
+                <input class="form-control" type="text" name="expediente.citahistorial" [(ngModel)]="expediente.citahistorial" >
+              </div>
+            </div>  
+            <div class="form-group">
+              <label>TRATAMIENTO</label>
+              <textarea class="form-control" rows="8" name="expediente.diagnostico" [(ngModel)]="expediente.diagnostico"></textarea>
+            </div>                                   
+          </div>       
+        </div>
+        <div class="form-actions">
+          <button (click)="editarExpediente();" class="btn btn-success"> <i class="fa fa-check"></i> Guardar </button> 
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>

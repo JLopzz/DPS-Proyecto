@@ -1,0 +1,39 @@
+<ion-content padding>
+  <app-header title="Detalle de visita realizada"></app-header>
+  <div class="card">
+    <div class="card-body">
+      <table id="demo-foo-accordion" class="table m-b-0 toggle-arrow-tiny">
+        <thead>
+          <tr >
+            <th data-toggle="true"> Fecha Elaborada</th>
+            <th data-toggle="true"> Fecha Citada</th>
+            <th class="text-center"> Editar </th>
+            <th class="text-center"> Ver </th>
+            <th class="text-center"> Imprimir Receta </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of exp" >
+            <td class="align-middle">{{ datos.fechahistorial }}</td>
+            <td class="align-middle">{{ datos.citahistorial }}</td>
+            <td class="text-center">
+              <ion-button (click)="modalEditar(datos.idhistorial);" color="warning">
+                <ion-icon name="create-outline" size="large"></ion-icon>
+              </ion-button>
+            </td>
+            <td class="text-center">
+              <ion-button (click)="modalVer(datos.idhistorial);" color="success">
+                <ion-icon name="document-text-outline" size="large"></ion-icon>
+              </ion-button>
+            </td>
+            <td class="text-center">
+              <ion-button disabled color="secondary">
+                <ion-icon name="print-outline" size="large"></ion-icon>
+              </ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

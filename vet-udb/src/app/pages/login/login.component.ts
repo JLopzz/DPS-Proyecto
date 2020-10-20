@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
   userPwd : string
   userMail : string
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.fireAuth.isLoggedIn === true) this.router.navigate(['clientes'])
+  }
 
   togglePass(){
     this.showPass = !this.showPass

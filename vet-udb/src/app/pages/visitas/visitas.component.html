@@ -1,21 +1,29 @@
 <ion-content padding>
   <app-header title="Registro de Visitas de Clientes"></app-header>
-  <div class="table-responsive animated fadeInDown">
-    <table class="table full-color-table full-primary-table hover-table">
-      <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Ver</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let hist of newhistoriales">
-            <td>{{hist.nompaciente}}</td>
-            <td>
-              <a (click)="VerExp(hist.idpaciente);" class="btn btn-success" ><i class="fa fa-eye"></i></a>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-  </div>    
+  <ion-grid>
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <div class="table-responsive animated fadeInDown">
+          <table class="table full-color-table full-primary-table hover-table">
+            <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hist of newhistoriales">
+                  <td class="align-middle">{{hist.nompaciente}}</td>
+                  <td>
+                    <ion-button color="success" (click)="VerExp(hist.idpaciente)">
+                      <ion-icon name="document-text-outline" color="clear-type" size='large'></ion-icon>
+                    </ion-button>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>    
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

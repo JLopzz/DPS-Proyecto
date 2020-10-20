@@ -62,6 +62,7 @@ export class NuevaVisitaComponent implements OnInit {
               'success'
             );
           }
+          this.route.navigate(['visitas']);
         });
       } else if (
         /* Read more about handling dismissals below */
@@ -96,7 +97,7 @@ export class NuevaVisitaComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
 
-        this.route.navigate(['/expediente', idpaciente]);
+        this.route.navigate(['visitas', idpaciente]);
 
       } else if (
         /* Read more about handling dismissals below */
