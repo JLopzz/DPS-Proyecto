@@ -9,7 +9,9 @@ import { ModalController } from '@ionic/angular'
 })
 export class VerVisitaComponent implements OnInit {
 
-  expediente = {}
+  expediente : any = {}
+  mostrar = false ;
+  
   @Input() set data (paramId:any){
     console.log(paramId)
     this.seleccionarExpediente(paramId)

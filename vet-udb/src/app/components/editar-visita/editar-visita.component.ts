@@ -10,7 +10,9 @@ import Swal from 'sweetalert2'
 })
 export class EditarVisitaComponent implements OnInit {
   
-  expediente = {}
+  expediente : any = {}
+  mostrar = false ;
+  
   @Input() set data (paramId:any){
     this.selectExpediente(paramId)
   }
