@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'visitas', component: VisitasComponent, canActivate:[AuthGuard] },
   { path: 'nueva-visita', component: NuevaVisitaComponent, canActivate:[AuthGuard] },
   { path: 'visitas/:id', component: DetalleVisitaComponent, canActivate:[AuthGuard] },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
