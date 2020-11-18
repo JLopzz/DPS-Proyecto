@@ -59,6 +59,6 @@ export class PacienteService {
 
   // Imprimir Receta
   seleccionarRecetaPDF(idhistorial: number) {
-    window.open(`${this.URL}extensiones/tcpdf/pdf/rec.php?idhistorial=${idhistorial}`, '_blank');
+    window.open(`${this.URL}api/pdf/rec.php?idhistorial=${idhistorial}`, '_blank');
   }
 }
